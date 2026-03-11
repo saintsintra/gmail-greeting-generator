@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Greeting Generator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 280px;
+      font-family: 'Google Sans', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        --bg: #ffffff;
+        --bg-card: #f1f3f4;
+        --text: #202124;
+        --text2: #5f6368;
+        --border: #e0e0e0;
+        --btn: #1a73e8;
+        --btn-hover: #1557b0;
+        --btn-text: #fff;
+        --btn-success: #1e8e3e;
+        --divider: #e0e0e0;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        --bg: #292a2d;
+        --bg-card: #35363a;
+        --text: #e8eaed;
+        --text2: #9aa0a6;
+        --border: #5f6368;
+        --btn: #8ab4f8;
+        --btn-hover: #aecbfa;
+        --btn-text: #202124;
+        --btn-success: #81c995;
+        --divider: #5f6368;
+      }
+    }
+
+    .header {
+      padding: 16px 16px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+
+    .header-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .shortcut {
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--text2);
+      background: var(--bg-card);
+      padding: 3px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--divider);
+      white-space: nowrap;
+    }
+
+    .divider { height: 1px; background: var(--divider); }
+
+    .greeting-wrap {
+      padding: 12px 16px;
+    }
+
+    .greeting-card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 12px 14px;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+    }
+
+    .greeting-text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text);
+      transition: opacity 0.14s ease, transform 0.14s ease;
+    }
+
+    .btn-wrap {
+      padding: 0 16px 16px;
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 9px 16px;
+      background: var(--btn);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 20px;
+      font-family: 'Google Sans', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+      letter-spacing: 0.25px;
+    }
+
+    .generate-btn:hover {
+      background: var(--btn-hover);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .generate-btn:active { transform: scale(0.98); }
+
+    .generate-btn.success {
+      background: var(--btn-success) !important;
+    }
+
+    .footer {
+      padding: 10px 16px 14px;
+      font-size: 11px;
+      color: var(--text2);
+      border-top: 1px solid var(--divider);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="icon.png" alt="Hi!">
+    <div class="header-label">Greeting Generator</div>
+    <div class="shortcut">⌃⇧G</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="greeting-wrap">
+    <div class="greeting-card">
+      <div class="greeting-text" id="greetingText"></div>
+    </div>
+  </div>
+
+  <div class="btn-wrap">
+    <button class="generate-btn" id="generateBtn">Generate</button>
+  </div>
+
+  <div class="footer">
+    Or press <strong>Ctrl+Shift+G</strong> in a compose window to insert directly.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

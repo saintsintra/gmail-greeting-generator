@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail Greeting Generator",
+  "version": "6.0",
+  "description": "Press Ctrl+Shift+G in Gmail to insert a randomized greeting. Click the Hi! button in the compose toolbar.",
+  "permissions": ["activeTab", "scripting", "clipboardWrite"],
+  "host_permissions": ["https://mail.google.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.png", "icon48.png", "icon16.png"],
+      "matches": ["https://mail.google.com/*"]
+    }
+  ]
+}
